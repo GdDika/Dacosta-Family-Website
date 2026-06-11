@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GDM STORE - Jasa Professional</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; }
+    
+    .hero-bg {
+      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), 
+                  url(welcome.png) center/cover no-repeat;
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+
+    .hero-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 90%;
+      max-width: 800px;
+    }
+
+    .logo-text {
+      font-family: 'Impact', sans-serif;
+      letter-spacing: 0.08em;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.9);
+    }
+
+    .nav-links {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .social-icon {
+      font-size: 2.25rem;
+      width: 2.25rem;
+      height: 2.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .social-btn {
+      min-width: 280px; /* Membuat tombol sama panjang */
+    }
+  </style>
+</head>
+<body class="bg-gray-950 text-white">
+
+  <!-- Navbar -->
+  <nav class="bg-black/90 backdrop-blur-md fixed w-full z-50 border-b border-gray-800">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center relative">
+      <div class="flex items-center gap-3 flex-shrink-0">
+        <img src="logo.png" alt="GDM Logo" class="h-12">
+        <div>
+          <span class="text-4xl font-bold logo-text tracking-wider text-white">GDM</span>
+          <span class="text-xl font-light text-gray-300 tracking-widest ml-2">STORE</span>
+        </div>
+      </div>
+
+      <div class="nav-links hidden md:flex gap-8 text-lg font-medium">
+        <a href="#home" class="hover:text-emerald-400 transition">Beranda</a>
+        <a href="#services" class="hover:text-emerald-400 transition">Layanan</a>
+        <a href="#contact" class="hover:text-emerald-400 transition">Kontak</a>
+      </div>
+
+      <div class="flex-shrink-0 ml-auto">
+        <button onclick="toggleCart()" class="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 px-6 py-3 rounded-full transition">
+          <i class="fas fa-shopping-cart"></i>
+          <span id="cart-count" class="bg-white text-black text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="hero-bg relative flex items-center">
+    <div class="hero-content">
+      <h1 class="text-5xl md:text-7xl font-bold logo-text tracking-widest mb-3 text-white">GDM STORE</h1>
+      <p class="text-xl md:text-2xl text-gray-200">Jasa Mapping • Editing Video • Design Profesional</p>
+      <a href="#services" class="mt-10 inline-block bg-emerald-600 hover:bg-emerald-500 text-white px-10 py-4 rounded-full text-xl font-semibold transition">
+        Lihat Layanan Kami
+      </a>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="py-20 bg-gray-900">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12">Layanan Kami</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Jasa Mapping, Editing Video, Design tetap sama seperti sebelumnya -->
+        <div class="bg-gray-800 rounded-3xl overflow-hidden hover:scale-105 transition-all">
+          <div class="h-60 bg-gradient-to-br from-blue-900 to-gray-900 flex items-center justify-center">
+            <i class="fas fa-map text-9xl text-blue-400 opacity-75"></i>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold mb-3">Jasa Mapping</h3>
+            <p class="text-gray-400 mb-6">Pembuatan map profesional, GIS, digital mapping, dan visualisasi data spasial.</p>
+            <div class="flex justify-between items-end">
+              <span class="text-emerald-400 text-3xl font-bold">Rp 200 [HARGA BERPARIASI]</span>
+              <button onclick="addToCart('Jasa Mapping')" class="bg-emerald-600 hover:bg-emerald-500 px-7 py-3 rounded-2xl">Pesan</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-800 rounded-3xl overflow-hidden hover:scale-105 transition-all">
+          <div class="h-60 bg-gradient-to-br from-purple-900 to-gray-900 flex items-center justify-center">
+            <i class="fas fa-video text-9xl text-purple-400 opacity-75"></i>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold mb-3">Jasa Editing Video</h3>
+            <p class="text-gray-400 mb-6">Editing video berkualitas tinggi, motion graphics, color grading, dll.</p>
+            <div class="flex justify-between items-end">
+              <span class="text-emerald-400 text-3xl font-bold">Rp 5.000 [HARGA BERPARIASI]</span>
+              <button onclick="addToCart('Jasa Editing Video')" class="bg-emerald-600 hover:bg-emerald-500 px-7 py-3 rounded-2xl">Pesan</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-800 rounded-3xl overflow-hidden hover:scale-105 transition-all">
+          <div class="h-60 bg-gradient-to-br from-rose-900 to-gray-900 flex items-center justify-center">
+            <i class="fas fa-palette text-9xl text-rose-400 opacity-75"></i>
+          </div>
+          <div class="p-8">
+            <h3 class="text-2xl font-bold mb-3">Jasa Design</h3>
+            <p class="text-gray-400 mb-6">Desain logo, poster, banner, thumbnail, UI/UX, dan desain grafis lainnya.</p>
+            <div class="flex justify-between items-end">
+              <span class="text-emerald-400 text-3xl font-bold">Rp 5.000 [HARGA BERPARIASI]</span>
+              <button onclick="addToCart('Jasa Design')" class="bg-emerald-600 hover:bg-emerald-500 px-7 py-3 rounded-2xl">Pesan</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cart Modal + Checkout Form -->
+  <div id="cart-modal" class="hidden fixed inset-0 bg-black/90 flex items-center justify-center z-[100] p-4">
+    <div class="bg-gray-900 rounded-3xl p-8 max-w-lg w-full">
+      <h3 class="text-3xl font-bold mb-6">Keranjang Anda</h3>
+      <div id="cart-items" class="space-y-4 mb-8 min-h-[150px]"></div>
+      
+      <div class="flex justify-between text-2xl font-semibold mb-8">
+        <span>Total:</span>
+        <span id="cart-total" class="text-emerald-400">Rp 0</span>
+      </div>
+
+      <!-- Form Kontak -->
+      <div class="mb-6">
+        <label class="block text-sm mb-2">Nomor HP / Username Discord <span class="text-red-500">*</span></label>
+        <input id="contact-info" type="text" placeholder="Contoh: 081234567890 atau username#1234" 
+               class="w-full bg-gray-800 border border-gray-700 rounded-2xl px-5 py-4 focus:outline-none focus:border-emerald-500">
+      </div>
+
+      <div class="flex gap-4">
+        <button onclick="toggleCart()" class="flex-1 py-4 border border-gray-600 rounded-2xl hover:bg-gray-800">Tutup</button>
+        <button onclick="submitOrder()" class="flex-1 bg-emerald-600 hover:bg-emerald-500 py-4 rounded-2xl">Kirim Pesanan</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <section id="contact" class="py-20 bg-black">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-4xl font-bold mb-6">Hubungi Kami</h2>
+      <p class="text-xl text-gray-400 mb-10">Kami beroperasi utama di Discord & TikTok.</p>
+      
+      <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+        <a href="https://discord.gg/KxAKnPHp5K" target="_blank" class="social-btn inline-flex items-center gap-4 bg-indigo-600 hover:bg-indigo-500 text-white px-10 py-5 rounded-3xl text-2xl font-semibold transition">
+          <i class="fab fa-discord social-icon"></i>
+          <span>Join Discord Group</span>
+        </a>
+        
+        <a href="https://www.tiktok.com/@gdmstore_" target="_blank" class="social-btn inline-flex items-center gap-4 bg-black hover:bg-gray-900 border border-white/30 text-white px-10 py-5 rounded-3xl text-2xl font-semibold transition">
+          <i class="fab fa-tiktok social-icon"></i>
+          <span>Follow TikTok</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-black py-10 border-t border-gray-800 text-center text-gray-500">
+    <p>&copy; 2026 GDM STORE • All Rights Reserved</p>
+  </footer>
+
+<script>
+    let cart = [];
+
+    // 🔥 GANTI DENGAN WEBHOOK DISCORD ANDA
+    const WEBHOOK_URL = "https://discord.com/api/webhooks/1513961389591363614/TGP_tZFbGoh8Gbjq9o9P8VqKU3XTuPYIGlgbT5XahOX_sRgtacEK90YUlJvBx5ZKBZxw";
+
+    // Load cart from localStorage saat halaman dibuka
+    function loadCart() {
+      const savedCart = localStorage.getItem('gdmCart');
+      if (savedCart) {
+        cart = JSON.parse(savedCart);
+        document.getElementById('cart-count').textContent = cart.length;
+      }
+    }
+
+    // Save cart ke localStorage
+    function saveCart() {
+      localStorage.setItem('gdmCart', JSON.stringify(cart));
+    }
+
+    function addToCart(service) {
+      const prices = {
+        'Jasa Mapping': 200,
+        'Jasa Editing Video': 5000,
+        'Jasa Design': 5000
+      };
+      cart.push({ name: service, price: prices[service] });
+      
+      document.getElementById('cart-count').textContent = cart.length;
+      saveCart(); // Simpan otomatis
+      
+      alert(`${service} berhasil ditambahkan ke keranjang!`);
+    }
+
+    function toggleCart() {
+      const modal = document.getElementById('cart-modal');
+      const itemsContainer = document.getElementById('cart-items');
+      itemsContainer.innerHTML = '';
+      
+      let total = 0;
+      cart.forEach(item => {
+        total += item.price;
+        itemsContainer.innerHTML += `
+          <div class="flex justify-between bg-gray-800 p-5 rounded-2xl">
+            <span class="text-lg">${item.name}</span>
+            <span class="font-semibold">Rp ${item.price.toLocaleString('id-ID')}</span>
+          </div>
+        `;
+      });
+
+      if (cart.length === 0) {
+        itemsContainer.innerHTML = `<p class="text-center text-gray-400 py-8">Keranjang kosong</p>`;
+      }
+
+      document.getElementById('cart-total').textContent = `Rp ${total.toLocaleString('id-ID')}`;
+      modal.classList.toggle('hidden');
+    }
+
+    async function submitOrder() {
+      const contact = document.getElementById('contact-info').value.trim();
+      
+      if (cart.length === 0) return alert("Keranjang masih kosong!");
+      if (!contact) return alert("Mohon isi nomor HP atau username Discord!");
+
+      const orderList = cart.map(item => `• ${item.name} - Rp ${item.price.toLocaleString('id-ID')}`).join("\n");
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+
+      const payload = {
+        content: "**🛒 PESANAN BARU - GDM STORE**",
+        embeds: [{
+          color: 0x10b981,
+          title: "Pesanan Baru",
+          description: orderList,
+          fields: [
+            { name: "Total Harga", value: `**Rp ${total.toLocaleString('id-ID')}**`, inline: true },
+            { name: "Kontak Pelanggan", value: contact, inline: true },
+            { name: "Waktu Pesan", value: new Date().toLocaleString('id-ID'), inline: true }
+          ],
+          footer: { text: "Dikirim dari Website GDM STORE" },
+          timestamp: new Date().toISOString()
+        }]
+      };
+
+      try {
+        const response = await fetch(WEBHOOK_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+          alert("✅ Pesanan berhasil dikirim ke Discord!\nKami akan segera menghubungi Anda.");
+          
+          // Kosongkan keranjang setelah berhasil
+          cart = [];
+          localStorage.removeItem('gdmCart'); // Hapus data keranjang
+          document.getElementById('cart-count').textContent = 0;
+          toggleCart();
+          document.getElementById('contact-info').value = '';
+        } else {
+          alert("Gagal mengirim pesanan (Status: " + response.status + ")");
+        }
+      } catch (error) {
+        console.error("Webhook Error:", error);
+        alert("❌ Gagal mengirim pesanan.\nPastikan webhook URL benar dan aktif.");
+      }
+    }
+
+    // Load cart saat halaman selesai dimuat
+    window.onload = loadCart;
+  </script>
+
+Cara Pakai:
+</body>
+</html>
